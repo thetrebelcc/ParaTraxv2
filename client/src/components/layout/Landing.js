@@ -20,7 +20,7 @@ class Landing extends Component {
                 <h1 className="display-3 mb-4">ParaTrax </h1>
                 <p className="lead">
                   {' '}
-                 Learn Brazilian jiu-jitsu with awesome diagrams and details intended to take your bjj to the following dimension. 
+                 Learn Brazilian jiu-jitsu with awesome diagrams and details intended to take your bjj to the next level. 
                 </p>
                 <hr />
                 <Link to="/register" className="btn btn-lg btn-info mr-2">
