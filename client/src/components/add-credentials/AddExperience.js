@@ -10,12 +10,10 @@ class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      from: '',
       company: '',
       title: '',
       location: '',
-      from: '',
-      to: '',
-      current: false,
       description: '',
       errors: {},
       disabled: false
@@ -76,15 +74,25 @@ class AddExperience extends Component {
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
+
+                <h6>Todays date</h6>
                 <TextFieldGroup
-                  placeholder="* Company"
+                  name="from"
+                  type="date"
+                  value={this.state.from}
+                  onChange={this.onChange}
+                  error={errors.from}
+                />
+
+                <TextFieldGroup
+                  placeholder="* Totals taps"
                   name="company"
                   value={this.state.company}
                   onChange={this.onChange}
                   error={errors.company}
                 />
                 <TextFieldGroup
-                  placeholder="* Job Title"
+                  placeholder="* Times you tapped"
                   name="title"
                   value={this.state.title}
                   onChange={this.onChange}
@@ -97,44 +105,14 @@ class AddExperience extends Component {
                   onChange={this.onChange}
                   error={errors.location}
                 />
-                <h6>From Date</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                  error={errors.from}
-                />
-                <h6>To Date</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  error={errors.to}
-                  disabled={this.state.disabled ? 'disabled' : ''}
-                />
-                <div className="form-check mb-4">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    name="current"
-                    value={this.state.current}
-                    checked={this.state.current}
-                    onChange={this.onCheck}
-                    id="current"
-                  />
-                  <label htmlFor="current" className="form-check-label">
-                    Current Job
-                  </label>
-                </div>
+              
                 <TextAreaFieldGroup
-                  placeholder="Job Description"
+                  placeholder="Notes"
                   name="description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us about the the position"
+                  info=""
                 />
                 <input
                   type="submit"
